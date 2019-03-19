@@ -39,17 +39,9 @@ class AccountController extends Controller
             ])->first();
 
             if ($user != null) {
-                if ($user->is_old_password) {
-                    if ($user->password === md5($request->post('password'))) {
-                        Auth::loginUsingId($user->id);
-                        return redirect(Route('m.welcome'));
-                    }
-                } else {
-                    if ($this->attemptLogin($request)) {
-                        return redirect(Route('m.welcome'));
-                    }
+                if ($this->attemptLogin($request)) {
+                    return redirect(Route('m.welcome'));
                 }
-
             }
             //登陆失败
             $this->incrementLoginAttempts($request);

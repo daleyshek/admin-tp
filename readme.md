@@ -14,6 +14,9 @@
 
 使用此集成代码可以快速地从无到有创建一个美观易用的后台系统。
 
+![screen1](screen.jpg)
+![screen2](screen2.jpg)
+
 ## 使用方法
 
 ```bash
@@ -34,6 +37,7 @@ php artisan migrate --seed
 php artisan storage:link
 
 # 静态资源压缩并输出到public目录
+# 调试错误 npm run dev
 npm run prod
 
 ```

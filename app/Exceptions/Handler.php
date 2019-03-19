@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -47,5 +48,20 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         return parent::render($request, $exception);
+    }
+
+    /**
+     * 登陆过期时选择跳转页面
+     */
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if(strpos($request->path(),'admin') === 0){
+            $loginRoute = route('m.login');
+        }else{
+            $loginRoute = route('login');
+        }
+        return $request->expectsJson()
+            ? response()->json(['message' => 'Unauthenticated.'], 401)
+            : redirect()->guest($loginRoute);
     }
 }
