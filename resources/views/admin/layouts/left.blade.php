@@ -15,7 +15,7 @@ $menuItems = [
                         ],
                         [
                                 'label' => '权限',
-                                'url' => '/manager/permission',
+                                'url' => '/admin/permission',
                                 'items' => [
                                     [
                                         'label' => '角色权限',
