@@ -8,10 +8,12 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Utils\WebPermissionCheck;
 
 class AccountController extends Controller
 {
     use AuthenticatesUsers;
+    use WebPermissionCheck;
 
     private $decayMinutes = 5;
 
@@ -40,6 +42,8 @@ class AccountController extends Controller
 
             if ($user != null) {
                 if ($this->attemptLogin($request)) {
+                    // 检查是否有后台的登陆权限
+                    $this->can("admin-login");
                     return redirect(Route('m.welcome'));
                 }
             }

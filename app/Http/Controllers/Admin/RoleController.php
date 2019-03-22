@@ -9,10 +9,13 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Utils\WebPermissionCheck;
+use App\Utils\WebPagination;
 
 class RoleController extends BaseController
 {
-    use CheckPermission;
+    use WebPermissionCheck;
+    use WebPagination;
 
     /**
      * 权限组列表
@@ -23,14 +26,16 @@ class RoleController extends BaseController
     {
         $this->can('user-group');
         $user = Auth::user();
-        if (!$user->can('user-group')) {
-            abort(403, "您没有访问权限");
-        }
+        $user->can('user-group');
+        
         if ($request->isMethod('POST')) {
-            //请求列表数据
-            $page = $request->input('page', 0);
-            $perPage = $request->input('perPage', 15);
-            $roles = Role::orderBy('id', 'asc')->get();
+            // 获取分页参数
+            [$page,$perPage,$offset] = $this->paginate($request);
+
+            $roles = Role::orderBy('id', 'asc')
+            ->limit($perPage)
+            ->offset($offset)
+            ->get();
             $total = Role::count();
             return [
                 'total' => $total,

@@ -11,10 +11,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Utils\WebPermissionCheck;
+use App\Utils\WebPagination;
 
 class UserController extends BaseController
 {
-    use CheckPermission;
+    use WebPermissionCheck;
+    use WebPagination;
+
     /**
      * 用户列表
      * @param Request $request
@@ -22,17 +26,19 @@ class UserController extends BaseController
      */
     public function users(Request $request)
     {
+        
         $this->can('user-config');
         if ($request->isMethod('POST')) {
-            //请求列表数据
-            $page = $request->input('page', 0);
-            $perPage = $request->input('perPage', 10);
+            // 获取分页参数
+            [$page,$perPage,$offset] = $this->paginate($request);
 
             $sql = <<<sql
             select u.id,ANY_VALUE(u.name) as name,ANY_VALUE(u.mobile) as mobile,ANY_VALUE(u.status) as status,max(ah.created_at) as actived_at from users as u 
             left join access_histories as ah on ah.user_id = u.id
             where u.deleted_at is null
-            group by u.id;
+            group by u.id
+            limit {$perPage}
+            offset {$offset}     
 sql;
             // $list = User::select('users.id', 'users.name', 'users.mobile', 'users.true_name', 'users.status')
             //     ->get();

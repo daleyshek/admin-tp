@@ -30,5 +30,8 @@ class UsersTableSeeder extends Seeder
             'status' => 1,
         ])
         ->attachRole(\App\Models\Role::where('name','store_manager')->first());
+
+        // 生成测试用户200条
+        factory(\App\Models\User::class, 200)->create();
     }
 }

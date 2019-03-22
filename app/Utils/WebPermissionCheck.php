@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Utils;
 
 use App\Models\Permission;
 use Illuminate\Support\Facades\Auth;
 
-trait CheckPermission {
+// Web网站的权限检查
+trait WebPermissionCheck {
     public function can(...$permissions){
         $user = Auth::user();
         foreach ($permissions as $permission){

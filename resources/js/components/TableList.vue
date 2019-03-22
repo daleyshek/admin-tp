@@ -86,7 +86,7 @@
                 this.loading = true;
                 $.post(this.url, {
                     page: this.page,
-                    perPage: this.perPage
+                    per_page: this.perPage
                 }, function (data, status) {
                     self.loading = false;
                     if (status == 'success') {
