@@ -95,7 +95,7 @@
             var v = new Vue({
                 el: "#vvvv",
                 data: {
-                    api: '{{route("m.roleApi",['id'=>$id])}}',
+                    api: '{{route("a.roleApi",['id'=>$id])}}',
                     changed:false,
                     checkedPermissions: [],
                     permissions: []

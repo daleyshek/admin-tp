@@ -3,7 +3,7 @@
     用户列表
 @endsection
 @section("content")
-    <a href="{{route('m.addUser')}}" class="btn btn-info btn-sm">新增用户</a>
+    <a href="{{route('a.addUser')}}" class="btn btn-info btn-sm">新增用户</a>
     <table-list></table-list>
     {{--<div class="box box-info">
         <div class="box-header">

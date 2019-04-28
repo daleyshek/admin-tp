@@ -11,10 +11,7 @@ class SiteController extends BaseController
 {
     public function welcome()
     {
-        $data['try_devices_count'] = 0;
-        $data['try_device'] = 0;
-        $data['active_today'] = 0;
-        $data['inspections_today'] = 0;
+        $data = [4523,14,234,0];
         return view('admin.site.welcome', ['data' => $data]);
     }
 

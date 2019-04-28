@@ -4,9 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Utils\WebPagination;
+use App\Utils\WebPermissionCheck;
 
 class BaseController extends Controller
 {
+    use WebPagination;
+    use WebPermissionCheck;
+
     public function __construct()
     {
         $this->middleware('auth');

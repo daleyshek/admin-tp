@@ -4,20 +4,23 @@
             <i class="fa fa-refresh fa-spin"></i>
         </div>
         <div class="box-header">
-            {{title}}
+            <h3>{{title}}</h3>
             <div class="box-tools">
-                <form action="#" method="get">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="q" class="form-control pull-right" placeholder="搜索">
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                <div class="box-tools">
+                    <form action="#" method="get">
+                        <div class="input-group input-group-sm" style="width: 200px;">
+                            <input type="text" name="q" class="form-control pull-right" v-bind:placeholder="searchText"">
+
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="box-body">
-            <table class="table table-hover table-condensed">
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th v-for="label in labels">{{label}}</th>
@@ -68,7 +71,8 @@
                 maxPage: 1,
                 labels: {},
                 operations: [],
-                list: []
+                list: [],
+                searchText:'搜索',
             }
         },
         methods: {
@@ -95,10 +99,11 @@
                         self.perPage = data.perPage;
                         self.maxPage = data.maxPage;
                         self.operations = data.operations;
-//                        if (self.page == 0) {
                         self.labels = data.labels;
                         self.labels.opration = '操作';
-//                        }
+                        if (data.searchText != null){
+                            self.searchText = data.searchText;
+                        }
                     }
                 });
             },

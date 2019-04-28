@@ -31,7 +31,7 @@ $requestUrl = $request->url();
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{route('m.welcome')}}" class="logo">
+        <a href="{{route('a.welcome')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">{{config('app.name')}}</span>
             <!-- logo for regular state and mobile devices -->
@@ -134,7 +134,7 @@ $requestUrl = $request->url();
                                     <a href="#" class="btn btn-default btn-flat">配置</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{route('m.logout')}}" class="btn btn-default btn-flat">退出登陆</a>
+                                    <a href="{{route('a.logout')}}" class="btn btn-default btn-flat">退出登陆</a>
                                 </div>
                             </li>
                         </ul>

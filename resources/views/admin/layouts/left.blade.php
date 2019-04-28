@@ -11,7 +11,7 @@ $menuItems = [
                 'items' => [
                         [
                                 'label' => '用户',
-                                'url' => route('m.users'),
+                                'url' => route('a.users'),
                         ],
                         [
                                 'label' => '权限',
@@ -19,7 +19,7 @@ $menuItems = [
                                 'items' => [
                                     [
                                         'label' => '角色权限',
-                                        'url' => route('m.roles'),
+                                        'url' => route('a.roles'),
                                     ],
                                 ]
                         ],
@@ -28,7 +28,7 @@ $menuItems = [
         [
                 'label' => '回到首页',
                 'icon' => 'home',
-                'url' => route('m.welcome'),
+                'url' => route('a.welcome'),
         ],
 ];
 ?>

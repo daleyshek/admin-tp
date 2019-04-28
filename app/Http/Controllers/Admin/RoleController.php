@@ -9,14 +9,9 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-use App\Utils\WebPermissionCheck;
-use App\Utils\WebPagination;
 
 class RoleController extends BaseController
 {
-    use WebPermissionCheck;
-    use WebPagination;
-
     /**
      * 权限组列表
      * @param Request $request
@@ -25,9 +20,6 @@ class RoleController extends BaseController
     public function roles(Request $request)
     {
         $this->can('user-group');
-        $user = Auth::user();
-        $user->can('user-group');
-        
         if ($request->isMethod('POST')) {
             // 获取分页参数
             [$page,$perPage,$offset] = $this->paginate($request);
@@ -97,7 +89,7 @@ class RoleController extends BaseController
             $role->display_name = $displayName;
             $role->description = $description;
             $role->save();
-            return redirect(route("m.editRole", ['id' => $role->id]));
+            return redirect(route("a.editRole", ['id' => $role->id]));
 
         }
         return view('admin.role.add');

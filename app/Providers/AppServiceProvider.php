@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         //国内手机号验证
-        Validator::extend('mobile', function ($attribute, $value, $parameters, $validator) {
+        Validator::extend('cn_mobile', function ($attribute, $value, $parameters, $validator) {
             if (preg_match('/^1[3-9][0-9]{9}$/', $value)) {
                 return true;
             }

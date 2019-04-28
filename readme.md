@@ -1,10 +1,11 @@
-# Admin-TP
+# Admin-TP 网页后台管理系统脚手架
 
 ## 描述
 
 基于Admin-LTE的laravel后台管理系统集成，集成的功能如下：
 
 - 基本的数据库结构和测试数据填充
+- Vue模板列表，支持记忆页码
 - 后台登陆界面
 - 后台主页和左侧菜单栏
 - 用户列表页
@@ -18,8 +19,6 @@
 ![screen2](screen2.jpg)
 ![screen3](screen3.jpg)
 ![screen3](screen4.jpg)
-
-
 
 ## 使用方法
 

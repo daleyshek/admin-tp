@@ -178,9 +178,9 @@
     <script>
         $('#delBtn').click(function(){
             if(window.confirm("确定删除该用户？删除后如果要恢复请联系开发者")){
-                $.get("{{route("m.deleteUser",['id'=>$user->id])}}",function(data){
+                $.get("{{route("a.deleteUser",['id'=>$user->id])}}",function(data){
                     if (data == 'success'){
-                        window.location.href = '{{route('m.users')}}';
+                        window.location.href = '{{route('a.users')}}';
                     }
                 })
             }
@@ -190,7 +190,7 @@
             var v = new Vue({
                 el: "#vvvv",
                 data: {
-                    api: '{{route("m.roleApi",['id'=>count($roles)>0?$roles[0]->id:0])}}',
+                    api: '{{route("a.roleApi",['id'=>count($roles)>0?$roles[0]->id:0])}}',
                     changed: false,
                     checkedPermissions: [],
                     permissions: []

@@ -43,8 +43,12 @@ class AccountController extends Controller
             if ($user != null) {
                 if ($this->attemptLogin($request)) {
                     // 检查是否有后台的登陆权限
-                    $this->can("admin-login");
-                    return redirect(Route('m.welcome'));
+                    if(!$user->can("admin-login")){
+                        throw ValidationException::withMessages([
+                            'mobile' => '没有登陆的权限',
+                        ]);
+                    }
+                    return redirect(Route('a.welcome'));
                 }
             }
             //登陆失败
@@ -67,6 +71,6 @@ class AccountController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect(route('m.login'));
+        return redirect(route('a.login'));
     }
 }

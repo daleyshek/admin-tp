@@ -11,13 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use App\Utils\WebPermissionCheck;
-use App\Utils\WebPagination;
 
 class UserController extends BaseController
 {
-    use WebPermissionCheck;
-    use WebPagination;
 
     /**
      * 用户列表
@@ -97,7 +93,7 @@ sql;
                 'name' => 'required|string|alpha_dash',
                 'password' => 'required|string|password',
                 'password_repeat' => 'required|string|same:password',
-                'mobile' => 'required|mobile|unique:users',
+                'mobile' => 'required|cn_mobile|unique:users',
                 'email' => 'nullable|email|unique:users',
                 'gender' => 'required'
             ]);
@@ -117,7 +113,7 @@ sql;
             $user->avatar = User::getDefaultAvatar($gender);
             $user->save();
 
-            return redirect(route('m.editUser', ['id' => $user->id]));
+            return redirect(route('a.editUser', ['id' => $user->id]));
         }
         return view('admin.user.addUser');
     }
@@ -165,7 +161,7 @@ sql;
                 $user->status = $status;
             }
             $user->save();
-            return redirect(route('m.editUser', ['id' => $user->id]));
+            return redirect(route('a.editUser', ['id' => $user->id]));
         }
 
         $user->status_label = $this->makeLabel(User::STATUS_TEXTS[$user->status], User::STATUS_LEVELS[$user->status]);
