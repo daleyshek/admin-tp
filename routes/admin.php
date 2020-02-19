@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return redirect()->route('a.login');
-});
+Route::get('/', 'SiteControllrt@index');
 
 Route::any('/login', 'AccountController@login')->name('a.login');
 
@@ -40,16 +38,3 @@ Route::any('/permission/roles/{id}/edit', 'RoleController@editRole')->name('a.ed
 Route::any('/permission/roles/{id}/api', 'RoleController@api')->name('a.roleApi');
 
 Route::any('/permission/roles/{id}/delete', 'RoleController@deleteRole')->name('a.deleteRole');
-
-
-//inspections
-
-Route::any('/ydbg/inspections', 'InspectionController@inspections')->name('a.inspections');
-
-Route::any('/ydbg/inspections/{id}', 'InspectionController@inspection')->name('a.inspection');
-
-Route::any('/ydbg/es', 'InspectionController@es')->name('a.es');
-
-Route::any('/ydbg/es/manual', 'InspectionController@esManual')->name('a.esManual');
-
-Route::any('/ydbg/es/{id}/download', 'InspectionController@esDownload')->name('a.esDownload');

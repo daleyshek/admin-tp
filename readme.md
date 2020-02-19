@@ -33,6 +33,9 @@ npm install
 # 配置自己的.env 环境
 mv .env.example .env
 
+# 生成key
+php artisan key:generate
+
 # 运行迁移和基本的数据填充
 php artisan migrate --seed
 

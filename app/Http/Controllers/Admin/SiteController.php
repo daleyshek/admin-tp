@@ -9,6 +9,11 @@ use App\Models\EquipmentInspection;
 
 class SiteController extends BaseController
 {
+
+    public function index(){
+        return redirect()->route('a.login');
+    }
+
     public function welcome()
     {
         $data = [4523,14,234,0];

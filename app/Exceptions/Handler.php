@@ -56,7 +56,7 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if(strpos($request->path(),'admin') === 0){
-            $loginRoute = route('m.login');
+            $loginRoute = route('a.login');
         }else{
             $loginRoute = route('login');
         }
