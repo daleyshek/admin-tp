@@ -27,25 +27,11 @@ class UserController extends BaseController
         if ($request->isMethod('POST')) {
             // 获取分页参数
             [$page,$perPage,$offset] = $this->paginate($request);
-
-            $sql = <<<sql
-            select u.id,ANY_VALUE(u.name) as name,ANY_VALUE(u.mobile) as mobile,ANY_VALUE(u.status) as status,max(ah.created_at) as actived_at from users as u 
-            left join access_histories as ah on ah.user_id = u.id
-            where u.deleted_at is null
-            group by u.id
-            limit {$perPage}
-            offset {$offset}     
-sql;
-            // $list = User::select('users.id', 'users.name', 'users.mobile', 'users.true_name', 'users.status')
-            //     ->get();
-
-            $list = DB::select(DB::raw($sql));
+            $list = User::select('users.id', 'users.name', 'users.mobile', 'users.status')
+                 ->get();
 
             foreach ($list as &$li) {
                 $li->status = $this->makeLabel(User::STATUS_TEXTS[$li->status], User::STATUS_LEVELS[$li->status]);
-                if($li->actived_at!=null){
-                    $li->actived_at = $this->makeLabel($this->translateTimeToDuration($li->actived_at),'default');
-                }
             }
 
             $total = User::count();
