@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', 'SiteControllrt@index');
+Route::get('/', 'SiteController@index');
 
 Route::any('/login', 'AccountController@login')->name('a.login');
 
