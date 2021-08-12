@@ -9,7 +9,7 @@
                 <div class="box-tools">
                     <form action="#" method="get">
                         <div class="input-group input-group-sm" style="width: 200px;">
-                            <input type="text" name="q" class="form-control pull-right" v-bind:placeholder="searchText"">
+                            <input type="text" name="q" class="form-control pull-right" v-bind:placeholder="searchText">
 
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>

@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 
-mix.js('resources/js/admin_common.js', 'public/assets/js')
+mix.js('resources/js/admin_common.js', 'public/assets/js').vue()
    .sass('resources/sass/admin_common.scss', 'public/assets/css')
    .styles(['node_modules/admin-lte/dist/css/AdminLTE.css', 'node_modules/admin-lte/dist/css/skins/_all-skins.css'],
    'public/assets/css/admin-lte.css');

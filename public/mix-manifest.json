@@ -1,7 +1,7 @@
 {
     "/assets/js/admin_common.js": "/assets/js/admin_common.js",
-    "/assets/css/admin_common.css": "/assets/css/admin_common.css",
-    "/assets/css/site.css": "/assets/css/site.css",
     "/assets/js/site.js": "/assets/js/site.js",
+    "/assets/css/site.css": "/assets/css/site.css",
+    "/assets/css/admin_common.css": "/assets/css/admin_common.css",
     "/assets/css/admin-lte.css": "/assets/css/admin-lte.css"
 }
