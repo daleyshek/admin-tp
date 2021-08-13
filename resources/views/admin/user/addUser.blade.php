@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">添加用户</h3>
@@ -95,7 +95,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-info">添加</button>
+                        <button type="submit" class="btn btn-primary">添加</button>
                     </div>
                     <!-- /.box-footer -->
                 </form>
