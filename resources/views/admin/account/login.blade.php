@@ -23,43 +23,49 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body" id="app">
-        <p class="login-box-msg">输入您的账号密码登陆系统</p>
-        @if(isset($errors)&&count($errors) >0)
-            <div class="alert alert-danger"
-                 style="background-color:#f2dede!important;border-color: #ebccd1!important;color:#a94442!important">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <h4>{{config('app.name')}}</h4>
             </div>
-        @endif
-        <form action="" method="post">
-            {{csrf_field()}}
-            <div class="form-group has-feedback">
-                <input type="text" name="mobile" class="form-control" placeholder="手机号" value="{{old('mobile')}}">
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" name="password" class="form-control" placeholder="密码" value="">
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember"> 记住我
-                        </label>
+            <div class="card-body">
+                <p class="login-box-msg">输入您的账号密码登陆系统</p>
+                @if(isset($errors)&&count($errors) >0)
+                    <div class="alert alert-danger"
+                        style="background-color:#f2dede!important;border-color: #ebccd1!important;color:#a94442!important">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">登陆</button>
-                </div>
-                <!-- /.col -->
+                @endif
+                <form action="" method="post">
+                    {{csrf_field()}}
+                    <div class="form-group has-feedback">
+                        <input type="text" name="mobile" class="form-control" placeholder="手机号" value="{{old('mobile')}}">
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" name="password" class="form-control" placeholder="密码" value="">
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember"> 记住我
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">登陆</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <a href="#">忘记密码</a><br>
             </div>
-        </form>
-
-        <a href="#">忘记密码</a><br>
-
+        </div>
     </div>
     <!-- /.login-box-body -->
 </div>

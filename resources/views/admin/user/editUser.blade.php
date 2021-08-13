@@ -5,18 +5,15 @@
 @section('template')
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <div class="box box-info">
-                <div class="box-header with-border">
-                    <h3 class="box-title">编辑用户</h3>
-                    <div class="btn-group pull-right">
-                        {!! $user->status_label !!}
-                    </div>
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title">编辑用户</h3>
                 </div>
-                <!-- /.box-header -->
+                <!-- /.card-header -->
                 <!-- form start -->
                 <form class="form-horizontal" method="post">
                     {{csrf_field()}}
-                    <div class="box-body">
+                    <div class="card-body">
                         <div class="form-group {{$errors->has('name')?"has-error":""}}">
                             <label class="col-sm-2 control-label">头像</label>
                             <div class="col-sm-10">
@@ -141,25 +138,27 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer">
+                    <!-- /.card-body -->
+                    <div class="card-footer">
                         <input type="submit" class="btn btn-info" value="保存">
                         <a href="javascript:" id="delBtn" class="btn btn-danger">删除</a>
                     </div>
-                    <!-- /.box-footer -->
+                    <!-- /.card-footer -->
                 </form>
             </div>
         </div>
 
 
         <div class="col-xs-12 col-md-6">
-            <div class="box box-info" id="vvvv">
-                <div class="box-header with-border">
-                    <h3 class="box-title">用户所有权限</h3>
-                    <small>鼠标悬浮可查看权限描述</small>
+            <div class="card" id="vvvv">
+                <div class="card-header with-border">
+                    <h3 class="card-title">
+                        用户所有权限
+                        <small>鼠标悬浮可查看权限描述</small>
+                    </h3>
                 </div>
-                <div class="box-body">
-                    <a class="btn btn-flat margin"
+                <div class="card-body">
+                    <a class="btn btn-flat mb mr"
                        v-bind:class="{'bg-gray':!isChecked(p.id),'bg-olive':isChecked(p.id)}" v-for="p in permissions"
                        v-bind:title="p.description"
                     >
@@ -168,7 +167,7 @@
                         @{{p.display_name}}
                     </a>
                 </div>
-                <div class="box-footer">
+                <div class="card-footer">
 
                 </div>
             </div>
@@ -178,9 +177,9 @@
     <script>
         $('#delBtn').click(function(){
             if(window.confirm("确定删除该用户？删除后如果要恢复请联系开发者")){
-                $.get("{{route("a.deleteUser",['id'=>$user->id])}}",function(data){
+                $.get(`{{route("a.deleteUser",['id'=>$user->id])}}`,function(data){
                     if (data == 'success'){
-                        window.location.href = '{{route('a.users')}}';
+                        window.location.href = `{{route('a.users')}}`;
                     }
                 })
             }
@@ -190,7 +189,7 @@
             var v = new Vue({
                 el: "#vvvv",
                 data: {
-                    api: '{{route("a.roleApi",['id'=>count($roles)>0?$roles[0]->id:0])}}',
+                    api: `{{route("a.roleApi",['id'=>count($roles)>0?$roles[0]->id:0])}}`,
                     changed: false,
                     checkedPermissions: [],
                     permissions: []

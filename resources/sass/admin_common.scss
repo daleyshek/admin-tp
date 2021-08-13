@@ -1,8 +1,65 @@
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-
-@import "~font-awesome/scss/font-awesome";
+$grid-gutter-width:           15px !default;
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~admin-lte/build/scss/adminlte.scss";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims.scss";
 
 body{
-    font-size:14px;
+    font-size: 14px;
+}
+.navbar-expand .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+.content-wrapper > .content {
+    padding: 0 .5rem;
+}
+
+.mb{
+    margin-bottom: .5rem;
+}
+.mt{
+    margin-top: .5rem;
+}
+.ml{
+    margin-left: .5rem;
+}
+.mr{
+    margin-right: .5rem;
+}
+.pt{
+    padding-top:.5rem;
+}
+.pb{
+    padding-bottom: .5rem;
+}
+.pl{
+    padding-left: .5rem;
+}
+.pr{
+    padding-right: .5rem;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-1{
+    flex: 1;
+}
+.flex-2{
+    flex: 2;
+}
+.flex-3{
+    flex: 3;
+}
+.flex-4{
+    flex: 4;
 }

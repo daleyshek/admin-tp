@@ -23,10 +23,10 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "admin-lte": "^2.4.10",
-        "bootstrap": "^3.4.1",
+        "@fortawesome/fontawesome-free": "^5.15.4",
+        "admin-lte": "^3.1.0",
+        "bootstrap": "^4.6.0",
         "bootstrap-sass": "^3.4.1",
-        "fontawesome": "^5.6.3",
         "plupload": "^2.3.6"
     }
 }

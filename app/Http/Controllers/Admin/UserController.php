@@ -26,9 +26,12 @@ class UserController extends BaseController
         $this->can('user-config');
         if ($request->isMethod('POST')) {
             // 获取分页参数
-            [$page,$perPage,$offset] = $this->paginate($request);
+            [$page,$pageSize,$offset] = $this->paginate($request);
             $list = User::select('users.id', 'users.name', 'users.mobile', 'users.status')
-                 ->get();
+                ->limit($pageSize)
+                ->offset($offset)
+                ->orderBy('id','asc')
+                ->get();
 
             foreach ($list as &$li) {
                 $li->status = $this->makeLabel(User::STATUS_TEXTS[$li->status], User::STATUS_LEVELS[$li->status]);
@@ -36,15 +39,14 @@ class UserController extends BaseController
 
             $total = User::count();
             return [
+                'title' => '用户列表',
                 'total' => $total,
                 'page' => $page,
-                'perPage' => $perPage,
-                'maxPage' => ceil($total / $perPage),
+                'maxPage' => ceil($total / $pageSize),
                 'labels' => [
-                    'id' => '#.',
+                    'id' => '#',
                     'name' => '用户名',
                     'mobile' => '手机号',
-                    'actived_at' => '最近活动',
                     'status' => "状态",
                 ],
                 'operations' => [

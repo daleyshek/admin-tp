@@ -50,7 +50,7 @@ class RoleController extends BaseController
                     ],
                     [
                         'label' => '删除',
-                        'icon' => 'fa-trash',
+                        'icon' => '',
                         'class' => 'btn-danger',
                         'bind' => 'id',
                         'pattern' => "/admin/permission/roles/{id}/delete",

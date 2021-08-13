@@ -10,7 +10,7 @@ trait WebPagination{
     public function paginate(Request $request,$perPage = null) :array {
         $page = $request->input('page',0);
         if($perPage == null){
-            $perPage = $request->input('per_page',20);
+            $perPage = $request->input('page_size',20);
         }
         return [$page,$perPage,$perPage*$page];
     }
