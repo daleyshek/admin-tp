@@ -9,14 +9,16 @@
         <div class="card-header">
             <h3 class="card-title">{{title}}</h3>
             <div class="card-tools" v-if="showSearch">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="query" class="form-control float-right" v-bind:placeholder="searchText">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                        </button>
+                <form>
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="query" class="form-control float-right" v-bind:placeholder="searchText">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="card-body table-responsive no-padding">

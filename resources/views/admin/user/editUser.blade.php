@@ -4,7 +4,7 @@
 @endsection
 @section('template')
     <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-12 col-md-6">
             <div class="card">
                 <div class="card-header with-border">
                     <h3 class="card-title">编辑用户</h3>
@@ -140,7 +140,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <input type="submit" class="btn btn-info" value="保存">
+                        <input type="submit" class="btn btn-primary" value="保存">
                         <a href="javascript:" id="delBtn" class="btn btn-danger">删除</a>
                     </div>
                     <!-- /.card-footer -->
@@ -149,7 +149,7 @@
         </div>
 
 
-        <div class="col-xs-12 col-md-6">
+        <div class="col-12 col-md-6">
             <div class="card" id="vvvv">
                 <div class="card-header with-border">
                     <h3 class="card-title">
