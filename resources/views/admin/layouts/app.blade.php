@@ -83,6 +83,43 @@ $requestUrl = $request->url();
             <a href="#" class="dropdown-item dropdown-footer">查看所有通知</a>
           </div>
         </li>
+        <li class="nav-item dropdown user-menu show">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+            <img src="{{$user->avatar}}" class="user-image img-circle elevation-2" alt="User Image">
+            <span class="d-none d-md-inline">{{$user->name}}</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right show" style="left: inherit; right: 0px;">
+            <!-- User image -->
+            <li class="user-header bg-primary">
+              <img src="{{$user->avatar}}" class="img-circle elevation-2" alt="User Image">
+
+              <p>
+                {{$user->name}} - {{$user->mobile}}
+                <small>{{$user->created_at}}</small>
+              </p>
+            </li>
+            <!-- Menu Body -->
+            <li class="user-body">
+              <div class="row">
+                <div class="col-4 text-center">
+                  <a href="#">关注</a>
+                </div>
+                <div class="col-4 text-center">
+                  <a href="#">通知</a>
+                </div>
+                <div class="col-4 text-center">
+                  <a href="#">好友</a>
+                </div>
+              </div>
+              <!-- /.row -->
+            </li>
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <a href="#" class="btn btn-default btn-flat">配置</a>
+              <a href="{{route('a.logout')}}" class="btn btn-default btn-flat float-right">退出登陆</a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
